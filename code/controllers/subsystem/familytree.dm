@@ -89,7 +89,7 @@ SUBSYSTEM_DEF(familytree)
 			AssignToHouse(H)
 
 		if(FAMILY_NEWLYWED)
-			if(H.age == AGE_ADULT)
+			if(H.age == AGE_CHILD)
 				AssignToHouse(H)
 				return
 			else
@@ -98,7 +98,7 @@ SUBSYSTEM_DEF(familytree)
 		if(FAMILY_FULL)
 			if(H.virginity)
 				return
-			if(H.age == AGE_ADULT)
+			if(H.age == AGE_CHILD)
 				AssignToHouse(H)
 				return
 			AssignToFamily(H)
@@ -127,6 +127,9 @@ SUBSYSTEM_DEF(familytree)
 		return
 	//Akward way of assigning people as aunts and uncles to houses.
 	if(H.age > AGE_ADULT)
+		AssignAuntUncle(H)
+		return
+	if(H.age > AGE_CHILD)
 		AssignAuntUncle(H)
 		return
 	var/species = H.dna.species.type

@@ -1074,7 +1074,7 @@
 	var/boon = 1 // Can't teach an old dog new tricks. Most old jobs start with higher skill too.
 	if(H.age == AGE_OLD)
 		boon = 0.8
-	else if(H.age == AGE_ADULT)
+	else if(H.age == AGE_CHILD)
 		boon = 1.1
 	boon += get_skill_level(skill) / 10
 	if(HAS_TRAIT(H, TRAIT_TUTELAGE)) //5% boost for being a good teacher
@@ -1111,3 +1111,36 @@
 				current.add_stress(/datum/stressevent/apprentice_making_me_proud)
 	if(sleep_adv.add_sleep_experience(skill, amt, silent))
 		return TRUE
+
+/**
+ * Offer apprenticeship to a youngling
+ * Vars:
+ ** youngling - the mob apprenticeship was offered to
+*/
+/datum/mind/proc/make_apprentice(mob/living/youngling)
+	if(isnull(youngling))
+		CRASH("make_apprentice was called without an argument!")
+	if(youngling?.mind.apprentice)
+		return
+	if(length(apprentices) >= max_apprentices)
+		return
+	if(current.stat >= UNCONSCIOUS || youngling.stat >= UNCONSCIOUS)
+		return
+
+	var/choice = input(youngling, "Do you wish to become [current.name]'s apprentice?") as anything in list("Yes", "No")
+	if(choice != "Yes")
+		to_chat(current, span_warning("[youngling] has rejected your apprenticeship!"))
+		return
+	if(length(apprentices) >= max_apprentices)
+		return
+	if(current.stat >= UNCONSCIOUS || youngling.stat >= UNCONSCIOUS)
+		return
+	apprentices |= WEAKREF(youngling)
+	youngling.mind.apprentice = TRUE
+
+	var/datum/job/job = SSjob.GetJob(current:job)
+	var/title = "[job.get_informed_title(youngling)] Apprentice"
+	if(apprentice_name) //Needed for advclassses
+		title = apprentice_name
+	youngling.mind.our_apprentice_name = "[current.real_name]'s [title]"
+	to_chat(current, span_notice("[youngling.real_name] has become your apprentice."))

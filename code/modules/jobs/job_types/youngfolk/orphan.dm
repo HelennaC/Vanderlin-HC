@@ -14,7 +14,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_races = RACES_PLAYER_ALL
-	allowed_ages = list(AGE_ADULT)
+	allowed_ages = list(AGE_CHILD)
 
 	outfit = /datum/outfit/job/orphan
 	can_have_apprentices = FALSE

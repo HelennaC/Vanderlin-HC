@@ -191,7 +191,7 @@
 #define PRINCE		(1<<3)
 
 #define YOUNGFOLK           (1<<6)
-#define INNKEEPHEIR    (1<<1)
+#define INNKEEPCHILD    (1<<1)
 #define CHURCHLING      (1<<2)
 #define ORPHAN		    (1<<3)
 
@@ -259,7 +259,7 @@
 #define JDO_SERVANT 26
 
 #define JDO_INNKEEP 27
-#define JDO_INNKEEP_HEIR 27.5
+#define JDO_INNKEEP_CHILD 27.5
 #define JDO_COOK 28
 
 #define JDO_BUTCHER 28.1
