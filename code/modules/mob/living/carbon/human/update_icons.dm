@@ -89,15 +89,11 @@ There are several things that need to be remembered:
 		if(dna.species.update_damage_overlays(src))
 			return
 	var/list/offsets = dna?.species?.offset_features
-	if(age == AGE_CHILD)
-		offsets = dna?.species?.offset_features_child
 	remove_overlay(DAMAGE_LAYER)
 	remove_overlay(LEG_DAMAGE_LAYER)
 	remove_overlay(ARM_DAMAGE_LAYER)
 
 	var/limb_icon = dna.species.dam_icon
-	if(age == AGE_CHILD)
-		limb_icon = dna.species.child_dam_icon
 	var/hidechest = FALSE
 	var/list/limb_overlaysa = list()
 	var/list/limb_overlaysb = list()
@@ -321,8 +317,6 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_neck()
 	remove_overlay(NECK_LAYER)
 	var/list/offsets = dna?.species?.offset_features
-	if(age == AGE_CHILD)
-		offsets = dna?.species?.offset_features_child
 
 	if(client && hud_used && hud_used.inv_slots[SLOT_NECK])
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_NECK]
@@ -350,8 +344,6 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_wear_id()
 	remove_overlay(RING_LAYER)
 	var/list/offsets = dna?.species?.offset_features
-	if(age == AGE_CHILD)
-		offsets = dna?.species?.offset_features_child
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_RING]
@@ -382,8 +374,6 @@ There are several things that need to be remembered:
 	remove_overlay(GLOVES_LAYER)
 	remove_overlay(GLOVESLEEVE_LAYER)
 	var/list/offsets = dna?.species?.offset_features
-	if(age == AGE_CHILD)
-		offsets = dna?.species?.offset_features_child
 
 	if(client && hud_used && hud_used.inv_slots[SLOT_GLOVES])
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_GLOVES]
@@ -461,8 +451,6 @@ There are several things that need to be remembered:
 	remove_overlay(WRISTS_LAYER)
 	remove_overlay(WRISTSLEEVE_LAYER)
 	var/list/offsets = dna?.species?.offset_features
-	if(age == AGE_CHILD)
-		offsets = dna?.species?.offset_features_child
 
 	if(client && hud_used && hud_used.inv_slots[SLOT_WRISTS])
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_WRISTS]
@@ -532,8 +520,6 @@ There are several things that need to be remembered:
 	remove_overlay(SHOES_LAYER)
 	remove_overlay(SHOESLEEVE_LAYER)
 	var/list/offsets = dna?.species?.offset_features
-	if(age == AGE_CHILD)
-		offsets = dna?.species?.offset_features_child
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_SHOES]
 		inv.update_icon()
@@ -591,8 +577,6 @@ There are several things that need to be remembered:
 		return
 
 	var/list/offsets = dna?.species?.offset_features
-	if(age == AGE_CHILD)
-		offsets = dna?.species?.offset_features_child
 
 	if(client && hud_used && hud_used.inv_slots[SLOT_HEAD])
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_HEAD]
@@ -666,8 +650,6 @@ There are several things that need to be remembered:
 						var/mob/living/carbon/human/H = src
 						if(H.dna && H.dna.species)
 							var/list/offsets = H.dna.species.offset_features
-							if(H.age == AGE_CHILD)
-								offsets = H.dna.species.offset_features_child
 							if(gender == MALE)
 								if(OFFSET_BELT in offsets)
 									onbelt_overlay.pixel_x += offsets[OFFSET_BELT][1]
@@ -686,8 +668,6 @@ There are several things that need to be remembered:
 				onbelt_overlay = beltr.build_worn_icon(age = age, default_layer = BELT_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/belt_r.dmi')
 				if(onbelt_overlay)
 					var/list/offsets = dna?.species?.offset_features
-					if(age == AGE_CHILD)
-						offsets = dna?.species?.offset_features_child
 					if(gender == MALE)
 						if(OFFSET_BELT in offsets)
 							onbelt_overlay.pixel_x += offsets[OFFSET_BELT][1]
@@ -727,8 +707,6 @@ There are several things that need to be remembered:
 						var/mob/living/carbon/human/H = src
 						if(H.dna && H.dna.species)
 							var/list/offsets = H.dna.species.offset_features
-							if(H.age == AGE_CHILD)
-								offsets = H.dna.species.offset_features_child
 							if(gender == MALE)
 								if(OFFSET_BELT in offsets)
 									onbelt_overlay.pixel_x += offsets[OFFSET_BELT][1]
@@ -747,8 +725,6 @@ There are several things that need to be remembered:
 				onbelt_overlay = beltl.build_worn_icon(age = age, default_layer = BELT_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/belt_l.dmi')
 				if(onbelt_overlay)
 					var/list/offsets = dna?.species?.offset_features
-					if(age == AGE_CHILD)
-						offsets = dna?.species?.offset_features_child
 					if(gender == MALE)
 						if(OFFSET_BELT in offsets)
 							onbelt_overlay.pixel_x += offsets[OFFSET_BELT][1]
@@ -780,8 +756,6 @@ There are several things that need to be remembered:
 					mbeltoverlay = belt.build_worn_icon(age = age, default_layer = BELT_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/belts.dmi', coom = FALSE, customi = racecustom)
 				if(mbeltoverlay && !dna.species.custom_clothes)
 					var/list/offsets = dna?.species?.offset_features
-					if(age == AGE_CHILD)
-						offsets = dna?.species?.offset_features_child
 					if(gender == MALE)
 						if(OFFSET_BELT in offsets)
 							mbeltoverlay.pixel_x += offsets[OFFSET_BELT][1]
@@ -809,8 +783,6 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_wear_mask()
 	..()
 	var/list/offsets = dna?.species?.offset_features
-	if(age == AGE_CHILD)
-		offsets = dna?.species?.offset_features_child
 
 	if(wear_mask)
 		if(!(SLOT_WEAR_MASK in check_obscured_slots()))
@@ -871,8 +843,6 @@ There are several things that need to be remembered:
 						var/mob/living/carbon/human/H = src
 						if(H.dna && H.dna.species)
 							var/list/offsets = H.dna.species.offset_features
-							if(H.age == AGE_CHILD)
-								offsets = H.dna.species.offset_features_child
 							if(gender == MALE)
 								if(OFFSET_BACK in offsets)
 									back_overlay.pixel_x += offsets[OFFSET_BACK][1]
@@ -890,8 +860,6 @@ There are several things that need to be remembered:
 			else
 				back_overlay = backr.build_worn_icon(age = age, default_layer = BACK_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/back_r.dmi')
 				var/list/offsets = dna?.species?.offset_features
-				if(age == AGE_CHILD)
-					offsets = dna?.species?.offset_features_child
 				if(gender == MALE)
 					if(OFFSET_BACK in offsets)
 						back_overlay.pixel_x += offsets[OFFSET_BACK][1]
@@ -930,8 +898,6 @@ There are several things that need to be remembered:
 						var/mob/living/carbon/human/H = src
 						if(H.dna && H.dna.species)
 							var/list/offsets = H.dna.species.offset_features
-							if(H.age == AGE_CHILD)
-								offsets = H.dna.species.offset_features_child
 							if(gender == MALE)
 								if(OFFSET_BACK in offsets)
 									back_overlay.pixel_x += offsets[OFFSET_BACK][1]
@@ -949,8 +915,6 @@ There are several things that need to be remembered:
 			else
 				back_overlay = backl.build_worn_icon(age = age, default_layer = BACK_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/back_l.dmi')
 				var/list/offsets = dna?.species?.offset_features
-				if(age == AGE_CHILD)
-					offsets = dna?.species?.offset_features_child
 				if(gender == MALE)
 					if(OFFSET_BACK in offsets)
 						back_overlay.pixel_x += offsets[OFFSET_BACK][1]
@@ -981,8 +945,6 @@ There are several things that need to be remembered:
 	remove_overlay(TABARD_LAYER)
 
 	var/list/offsets = dna?.species?.offset_features
-	if(age == AGE_CHILD)
-		offsets = dna?.species?.offset_features_child
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_CLOAK]
@@ -1105,8 +1067,6 @@ There are several things that need to be remembered:
 	remove_overlay(SHIRTSLEEVE_LAYER)
 
 	var/list/offsets = dna?.species?.offset_features
-	if(age == AGE_CHILD)
-		offsets = dna?.species?.offset_features_child
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_SHIRT]
@@ -1187,8 +1147,6 @@ There are several things that need to be remembered:
 	remove_overlay(ARMORSLEEVE_LAYER)
 
 	var/list/offsets = dna?.species?.offset_features
-	if(age == AGE_CHILD)
-		offsets = dna?.species?.offset_features_child
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_ARMOR]
@@ -1266,8 +1224,6 @@ There are several things that need to be remembered:
 	remove_overlay(LEGSLEEVE_LAYER)
 
 	var/list/offsets = dna?.species?.offset_features
-	if(age == AGE_CHILD)
-		offsets = dna?.species?.offset_features_child
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_PANTS]
@@ -1337,8 +1293,6 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_mouth()
 	remove_overlay(MOUTH_LAYER)
 	var/list/offsets = dna?.species?.offset_features
-	if(age == AGE_CHILD)
-		offsets = dna?.species?.offset_features_child
 
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
 		return
@@ -1492,8 +1446,6 @@ generate/load female uniform sprites matching all previously decided variables
 /obj/item/proc/build_worn_icon(age = AGE_ADULT, default_layer = 0, default_icon_file = null, isinhands = FALSE, femaleuniform = NO_FEMALE_UNIFORM, override_state = null, coom = null, customi = null, sleeveindex)
 	var/t_state
 	var/sleevejazz = sleevetype
-	if(age == AGE_CHILD)
-		coom = null
 	if(override_state)
 		t_state = override_state
 	else
@@ -1511,9 +1463,6 @@ generate/load female uniform sprites matching all previously decided variables
 		if(sleevejazz)
 			sleevejazz += "_[customi]"
 	var/t_icon = mob_overlay_icon
-	if(age == AGE_CHILD)
-		if(!istype(src, /obj/item/clothing/head) && !istype(src, /obj/item/clothing/face) && !istype(src, /obj/item/clothing/cloak) && !istype(src, /obj/item/clothing/gloves) && !istype(src, /obj/item/clothing/neck))
-			t_state += "_child"
 	if(!t_icon)
 		t_icon = default_icon_file
 
@@ -1836,8 +1785,6 @@ generate/load female uniform sprites matching all previously decided variables
 		return
 
 	var/list/offsets = dna?.species?.offset_features
-	if(age == AGE_CHILD)
-		offsets = dna?.species?.offset_features_child
 
 	testing("ehadonly [src]")
 	HD.update_limb()

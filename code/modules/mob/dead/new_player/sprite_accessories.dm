@@ -1523,21 +1523,6 @@
 	specuse = ALL_RACES_LIST
 	roundstart = FALSE
 
-//For use on Younglings
-/datum/sprite_accessory/underwear/child
-	name = "Youngling"
-	icon_state = "child"
-	gender = MALE
-	specuse = ALL_RACES_LIST
-	roundstart = FALSE
-
-/datum/sprite_accessory/underwear/child_f
-	name = "FemYoungling"
-	icon_state = "child_f"
-	gender = FEMALE
-	specuse = ALL_RACES_LIST
-	roundstart = FALSE
-
 //#endif
 ////////////////////////////
 // Undershirt Definitions //
@@ -1736,6 +1721,48 @@
 	hasinner = 1
 	color_src = HAIR
 	specuse = list("cattan")
+
+/datum/sprite_accessory/wings/none
+	name = "None"
+	icon_state = "none"
+
+/datum/sprite_accessory/wings
+	icon = 'icons/mob/clothing/wings.dmi'
+
+/datum/sprite_accessory/wings_open
+	icon = 'icons/mob/clothing/wings.dmi'
+
+/datum/sprite_accessory/wings/angel
+	name = "Angel"
+	icon_state = "angel"
+	color_src = 0
+	dimension_x = 46
+	center = TRUE
+	dimension_y = 34
+	locked = TRUE
+
+/datum/sprite_accessory/wings_open/angel
+	name = "Angel"
+	icon_state = "angel"
+	color_src = 0
+	dimension_x = 46
+	center = TRUE
+	dimension_y = 34
+
+/datum/sprite_accessory/wings/dragon
+	name = "Dragon"
+	icon_state = "dragon"
+	dimension_x = 96
+	center = TRUE
+	dimension_y = 32
+	locked = TRUE
+
+/datum/sprite_accessory/wings_open/dragon
+	name = "Dragon"
+	icon_state = "dragon"
+	dimension_x = 96
+	center = TRUE
+	dimension_y = 32
 
 /datum/sprite_accessory/frills
 	icon = 'icons/mob/mutant_bodyparts.dmi'

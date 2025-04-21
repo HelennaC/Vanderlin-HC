@@ -32,7 +32,7 @@
 	use_skintones = 1
 	disliked_food = NONE
 	liked_food = NONE
-	possible_ages = list(AGE_CHILD, AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
+	possible_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/mt_muscular.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/ft_muscular.dmi'
@@ -54,7 +54,6 @@
 	specstats = list(STATKEY_STR = 2, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = 2, STATKEY_END = 1, STATKEY_SPD = 0, STATKEY_LCK = -1)
 	specstats_f = list(STATKEY_STR = 2, STATKEY_PER = -2, STATKEY_INT = -1, STATKEY_CON = 1, STATKEY_END = 1, STATKEY_SPD = 0, STATKEY_LCK = -1)
 	enflamed_icon = "widefire"
-	exotic_bloodtype = /datum/blood_type/human/horc
 
 /datum/species/halforc/check_roundstart_eligible()
 	return TRUE
@@ -112,7 +111,7 @@
 	return null
 
 /datum/species/halforc/get_accent_list()
-	return strings("accents/halforc_replacement.json", "halforc")
+	return strings("halforc_replacement.json", "halforc")
 
 /datum/species/halforc/get_native_language()
 	return "Orcish"

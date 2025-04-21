@@ -36,7 +36,7 @@
 	use_skintones = 1
 	disliked_food = NONE
 	liked_food = NONE
-	possible_ages = list(AGE_CHILD, AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
+	possible_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/met.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/ft.dmi'
@@ -142,4 +142,4 @@
 	return last_names
 
 /datum/species/elf/snow/get_accent_list()
-	return strings("accents/russian_replacement.json", "russian")
+	return strings("russian_replacement.json", "russian")

@@ -31,13 +31,11 @@
 
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/rakshari.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/rakshari.dmi'
-	child_icon = 'icons/roguetown/mob/bodies/c/child-rakshari.dmi'
 	custom_clothes = FALSE
 	custom_clothes = FALSE
-	possible_ages = list(AGE_CHILD, AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
+	possible_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	species_traits = list(EYECOLOR,OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP)
-	exotic_bloodtype = /datum/blood_type/human/rakshari
 
 	offset_features = list(OFFSET_ID = list(0,0), OFFSET_GLOVES = list(0,0), OFFSET_WRISTS = list(0,0),\
 	OFFSET_CLOAK = list(0,0), OFFSET_FACEMASK = list(0,0), OFFSET_HEAD = list(0,0), \

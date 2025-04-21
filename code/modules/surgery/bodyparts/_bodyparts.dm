@@ -427,9 +427,6 @@
 			species_icon = S.limbs_icon_m
 		else
 			species_icon = S.limbs_icon_f
-		if(H.age == AGE_CHILD)
-			species_icon = S.child_icon
-		species_flags_list = H.dna.species.species_traits
 
 
 		if(S.use_skintones)

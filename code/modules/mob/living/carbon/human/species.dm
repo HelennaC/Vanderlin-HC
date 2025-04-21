@@ -12,7 +12,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/icon_override
 	var/icon_override_m
 	var/icon_override_f
-	var/list/possible_ages = ALL_AGES_LIST_WITH_CHILD
+	var/list/possible_ages = ALL_AGES_LIST
 	var/sexes = TRUE		// whether or not the race has sexual characteristics. at the moment this is only 0 for skeletons and shadows
 	var/patreon_req
 	var/max_age = 75
@@ -146,21 +146,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	/// List all of body markings that the player can choose from in customization. Body markings from sets get added to here
 	var/list/body_markings
 
-	///can we be a youngling?
-	var/can_be_youngling = TRUE
-	var/child_icon = 'icons/roguetown/mob/bodies/c/child.dmi'
-	var/child_dam_icon = 'icons/roguetown/mob/bodies/dam/dam_child.dmi'
-	var/list/offset_features_child = list(OFFSET_ID = list(0,0), OFFSET_GLOVES = list(0,0),\
-	OFFSET_CLOAK = list(0,-4), OFFSET_FACEMASK = list(0,-4), OFFSET_HEAD = list(0,-4), \
-	OFFSET_FACE = list(0,-4), OFFSET_BELT = list(0,0), OFFSET_BACK = list(0,0), \
-	OFFSET_NECK = list(0,-4), OFFSET_MOUTH = list(0,-4), OFFSET_PANTS = list(0,0), \
-	OFFSET_SHIRT = list(0,0), OFFSET_ARMOR = list(0,0), OFFSET_HANDS = list(0,-3), \
-	OFFSET_ID_F = list(0,0), OFFSET_GLOVES_F = list(0,0), OFFSET_HANDS_F = list(0,-3), \
-	OFFSET_CLOAK_F = list(0,-4), OFFSET_FACEMASK_F = list(0,-4), OFFSET_HEAD_F = list(0,-4), \
-	OFFSET_FACE_F = list(0,-4), OFFSET_BELT_F = list(0,0), OFFSET_BACK_F = list(0,0), \
-	OFFSET_NECK_F = list(0,-4), OFFSET_MOUTH_F = list(0,-4), OFFSET_PANTS_F = list(0,0), \
-	OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES = list(0,0), OFFSET_UNDIES_F = list(0,0))
-
 	///Statkey = bonus stat, - for malice.
 	var/list/specstats = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
 	///Statkey = bonus stat, - for malice.
@@ -183,7 +168,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/language = speech_args[SPEECH_LANGUAGE]
 
 	if(message)
-		var/list/accent_words = strings("accents/spellcheck.json", "spellcheck")
+		var/list/accent_words = strings("spellcheck.json", "spellcheck")
 		var/mob/living/carbon/human/H
 		if(ismob(source))
 			H = source
@@ -203,7 +188,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(message && message[1] && message[1] != "*")
 		message = " [message]"
 
-		var/list/accent_words = strings("accents/accent_universal.json", "universal")
+		var/list/accent_words = strings("accent_universal.json", "universal")
 		for(var/key in accent_words)
 			var/value = accent_words[key]
 			if(islist(value))
@@ -524,7 +509,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/obj/item/organ/tongue/tongue = C.getorganslot(ORGAN_SLOT_TONGUE)
 	var/obj/item/organ/liver/liver = C.getorganslot(ORGAN_SLOT_LIVER)
 	var/obj/item/organ/stomach/stomach = C.getorganslot(ORGAN_SLOT_STOMACH)
-	var/obj/item/organ/guts/guts = C.getorganslot(ORGAN_SLOT_GUTS)
+	var/obj/item/organ/guts/guts = C.getorganslot(ORGAN_SLOT_STOMACH_AID)
 	var/obj/item/organ/tail/tail = C.getorganslot(ORGAN_SLOT_TAIL)
 
 	var/should_have_brain = TRUE
@@ -761,8 +746,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 /datum/species/proc/handle_hair(mob/living/carbon/human/H, forced_colour)
 	var/list/offsets = H.dna.species.offset_features
-	if(H.age == AGE_CHILD)
-		offsets = H.dna.species.offset_features_child
+	if(H.age == AGE_ADULT)
+		offsets = H.dna.species.offset_features
 	H.remove_overlay(HAIR_LAYER)
 	H.remove_overlay(HAIREXTRA_LAYER)
 	var/obj/item/bodypart/head/HD = H.get_bodypart(BODY_ZONE_HEAD)
@@ -939,8 +924,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 /datum/species/proc/handle_body(mob/living/carbon/human/H)
 	var/list/offsets = H.dna.species.offset_features
-	if(H.age == AGE_CHILD)
-		offsets = H.dna.species.offset_features_child
+	if(H.age == AGE_ADULT)
+		offsets = H.dna.species.offset_features
 	H.remove_overlay(BODY_LAYER)
 	H.remove_overlay(ABOVE_BODY_FRONT_LAYER)
 
@@ -1043,24 +1028,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(I.flags_inv & HIDEBOOB)
 				hide_boob = TRUE
 
-		if(H.underwear)
-			if(H.age == AGE_CHILD)
-				H.underwear = "Youngling"
-				if(H.gender == FEMALE)
-					H.underwear = "FemYoungling"
-
 			var/datum/sprite_accessory/underwear/underwear = GLOB.underwear_list[H.underwear]
 			var/mutable_appearance/underwear_overlay
 			if(underwear)
 				underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
-				if(H.gender == FEMALE && H.age != AGE_CHILD)
-					if(OFFSET_FACE_F in offsets)
-						underwear_overlay.pixel_x += offsets[OFFSET_FACE_F][1]
-						underwear_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
-				else if(H.age != AGE_CHILD)
-					if(OFFSET_FACE in offsets)
-						underwear_overlay.pixel_x += offsets[OFFSET_FACE][1]
-						underwear_overlay.pixel_y += offsets[OFFSET_FACE][2]
 				if(!underwear.use_static)
 					if(H.underwear_color)
 						underwear_overlay.color = H.underwear_color
@@ -1103,8 +1074,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 /datum/species/proc/handle_mutant_bodyparts(mob/living/carbon/human/H, forced_colour)
 	var/list/offsets = H.dna.species.offset_features
-	if(H.age == AGE_CHILD)
-		offsets = H.dna.species.offset_features_child
+	if(H.age == AGE_ADULT)
+		offsets = H.dna.species.offset_features
 	var/list/bodyparts_to_add = mutant_bodyparts.Copy()
 	var/list/relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	var/list/standing	= list()
@@ -1301,27 +1272,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 							accessory_overlay.color = "#[H.skin_tone]"
 				else
 					accessory_overlay.color = forced_colour
-			if(S.offsetti)
-				if(H.age == AGE_CHILD)
-					if(H.gender == FEMALE)
-						if(OFFSET_FACE_F in offset_features_child)
-							accessory_overlay.pixel_x += offset_features_child[OFFSET_FACE_F][1]
-							accessory_overlay.pixel_y += offset_features_child[OFFSET_FACE_F][2]
-					else
-						if(OFFSET_FACE in offset_features_child)
-							accessory_overlay.pixel_x += offset_features_child[OFFSET_FACE][1]
-							accessory_overlay.pixel_y += offset_features_child[OFFSET_FACE][2]
-				else
-					if(H.gender == FEMALE)
-						if(OFFSET_FACE_F in offset_features)
-							accessory_overlay.pixel_x += offset_features[OFFSET_FACE_F][1]
-							accessory_overlay.pixel_y += offset_features[OFFSET_FACE_F][2]
-					else
-						if(OFFSET_FACE in offset_features)
-							accessory_overlay.pixel_x += offset_features[OFFSET_FACE][1]
-							accessory_overlay.pixel_y += offset_features[OFFSET_FACE][2]
-
-			standing += accessory_overlay
 
 			if(S.hasinner)
 				var/mutable_appearance/inner_accessory_overlay = mutable_appearance(S.icon, layer = -layer)
@@ -1332,26 +1282,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 				if(S.center)
 					inner_accessory_overlay = center_image(inner_accessory_overlay, S.dimension_x, S.dimension_y)
-				if(S.offsetti)
-					if(H.age == AGE_CHILD)
-						if(H.gender == FEMALE)
-							if(OFFSET_FACE_F in offset_features_child)
-								inner_accessory_overlay.pixel_x += offset_features_child[OFFSET_FACE_F][1]
-								inner_accessory_overlay.pixel_y += offset_features_child[OFFSET_FACE_F][2]
-						else
-							if(OFFSET_FACE in offset_features_child)
-								inner_accessory_overlay.pixel_x += offset_features_child[OFFSET_FACE][1]
-								inner_accessory_overlay.pixel_y += offset_features_child[OFFSET_FACE][2]
-					else
-						if(H.gender == FEMALE)
-							if(OFFSET_FACE_F in offset_features)
-								inner_accessory_overlay.pixel_x += offset_features[OFFSET_FACE_F][1]
-								inner_accessory_overlay.pixel_y += offset_features[OFFSET_FACE_F][2]
-						else
-							if(OFFSET_FACE in offset_features)
-								inner_accessory_overlay.pixel_x += offset_features[OFFSET_FACE][1]
-								inner_accessory_overlay.pixel_y += offset_features[OFFSET_FACE][2]
-				standing += inner_accessory_overlay
 
 		H.overlays_standing[layer] = standing.Copy()
 		standing = list()

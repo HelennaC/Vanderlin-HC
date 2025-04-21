@@ -285,7 +285,7 @@
 	var/max_storage = 8
 	var/list/arrows = list()
 	sewrepair = TRUE
-	component_type = null
+	component_type = /datum/component/storage/concrete/grid/belt/knife_belt
 
 
 /obj/item/storage/belt/leather/knifebelt/attack_turf(turf/T, mob/living/user)

@@ -10,8 +10,6 @@
 #define RACES_PLAYER_NONHERETICAL		list("Humen", "Rakshari", "Half-Elf", "Elf", "Dwarf", "Aasimar", "Kobold")
 /// Races who are non-exotic to Vanderlin. These are races from foreign lands with no local pull or uncommon races. Used in miscellaneous cases, when they would not be that role.
 #define RACES_PLAYER_NONEXOTIC			list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Half-Orc", "Aasimar")
-///Races that lack lux
-#define RACES_PLAYER_LUXLESS			list("Kobold", "Rakshari", "Dark Elf", "Tiefling", "Half-Orc", "Dark Elf")
 
 /// Races who are affiliated with Grenzelhoft or Psydon specifically.
 #define RACES_PLAYER_GRENZ				list("Humen", "Dwarf", "Aasimar")
@@ -565,9 +563,3 @@ BCLASS_TWIST)
 		"volf"="skullmet_volf",\
 		"bear"="skullmet_bear",\
 		"gote"="skullmet_goat")
-
-#define DENDOR_TAME_PROB_NONE 0
-#define DENDOR_TAME_PROB_LOW 25
-#define DENDOR_TAME_PROB_MEDIUM 50
-#define DENDOR_TAME_PROB_HIGH 75
-#define DENDOR_TAME_PROB_GURANTEED 100

@@ -105,8 +105,6 @@
 
 /obj/item/weapon/thresher/afterattack(obj/target, mob/user, proximity)
 	if(user.used_intent.type == /datum/intent/flailthresh)
-		if(!proximity)
-			return
 		if(isturf(target.loc))
 			var/turf/T = target.loc
 			var/found = FALSE
@@ -117,9 +115,9 @@
 				playsound(loc,"plantcross", 90, FALSE)
 				playsound(loc,"smashlimb", 35, FALSE)
 				apply_farming_fatigue(user, 10)
-				user.visible_message(span_notice("[user] threshes the stalks!"), \
-									span_notice("I thresh the stalks."))
-		return
+				user.visible_message("<span class='notice'>[user] threshes the stalks!</span>", \
+									"<span class='notice'>I thresh the stalks.</span>")
+			return
 	..()
 
 

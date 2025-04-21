@@ -25,7 +25,7 @@
 
 	earliest_start = 0 SECONDS
 
-	weight = 0 // Disabled until aspirant is reworked
+	weight = 8
 
 	typepath = /datum/round_event/antagonist/solo/aspirants
 

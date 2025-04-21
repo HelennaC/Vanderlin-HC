@@ -39,7 +39,7 @@
 	use_skintones = 1
 	disliked_food = NONE
 	liked_food = NONE
-	possible_ages = list(AGE_CHILD, AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
+	possible_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/mm.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/fm.dmi'
@@ -102,7 +102,7 @@
 		if(message[1])
 			if(message[1] != "*")
 				message = " [message]"
-				var/list/accent_words = strings("accents/accent_universal.json", "universal")
+				var/list/accent_words = strings("accent_universal.json", "universal")
 
 				for(var/key in accent_words)
 					var/value = accent_words[key]
@@ -170,7 +170,7 @@
 	return last_names
 
 /datum/species/tieberian/get_accent_list()
-	return strings("accents/spanish_replacement.json", "spanish")
+	return strings("spanish_replacement.json", "spanish")
 
 /datum/species/tieberian/get_native_language()
 	return "Infernal"

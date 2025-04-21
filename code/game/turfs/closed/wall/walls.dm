@@ -57,34 +57,6 @@
 /turf/closed/wall/mineral/stone/window/moss/red
 	icon = 'icons/turf/walls/mossy_stone_red.dmi'
 
-/turf/closed/wall/mineral/decorstone
-	name = "decorated stone wall"
-	desc = "The mason did an excellent job etching details into this wall."
-	icon = 'icons/turf/walls/church_stone.dmi'
-	icon_state = "decorstone"
-	smooth = SMOOTH_MORE
-	blade_dulling = DULLING_BASH
-	max_integrity = 2200
-	sheet_type = /obj/item/natural/stone
-	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
-	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
-	canSmoothWith = list(/turf/closed/wall/mineral/decorstone)
-	above_floor = /turf/open/floor/blocks
-	baseturfs = list(/turf/open/floor/blocks)
-	neighborlay = "dirtedge"
-	climbdiff = 1
-	damage_deflection = 10
-	hardness = 2
-
-/turf/closed/wall/mineral/decorstone/moss
-	icon = 'icons/turf/walls/church_stone_mossy.dmi'
-
-/turf/closed/wall/mineral/decorstone/moss/blue
-	icon = 'icons/turf/walls/church_stone_mossyblue.dmi'
-
-/turf/closed/wall/mineral/decorstone/moss/red
-	icon = 'icons/turf/walls/church_stone_mossyred.dmi'
-
 /turf/closed/wall/mineral/craftstone
 	name = "craftstone wall"
 	desc = "A durable wall made from specially crafted stone."
@@ -180,7 +152,7 @@
 /turf/closed/wall/mineral/tent
 	name = "tent"
 	desc = "Made from durable fabric and wooden branches."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "tent"
 	smooth = SMOOTH_FALSE
 	blade_dulling = DULLING_BASHCHOP
@@ -207,7 +179,7 @@
 /turf/closed/wall/mineral/wooddark
 	name = "dark wood wall"
 	desc = "Made from durable, somewhat darker wood."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "corner"
 	smooth = SMOOTH_FALSE
 	blade_dulling = DULLING_BASHCHOP
@@ -261,7 +233,7 @@
 
 /turf/closed/wall/mineral/roofwall
 	name = "wall"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/turf/roguewall.dmi'
 	icon_state = ""
 	smooth = SMOOTH_FALSE
 	blade_dulling = DULLING_BASHCHOP
@@ -293,7 +265,7 @@
 /turf/closed/wall/mineral/decowood
 	name = "daub wall"
 	desc = "A wattle and daub wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "decowood"
 	smooth = SMOOTH_FALSE
 	blade_dulling = DULLING_BASHCHOP
@@ -321,7 +293,7 @@
 /turf/closed/wall/mineral/decostone
 	name = "decorated stone wall"
 	desc = "The mason did an excellent job etching details into this wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "decostone-b"
 	smooth = SMOOTH_MORE
 	wallclimb = FALSE
@@ -341,7 +313,7 @@
 
 /obj/structure/thronething
 	name = "stone wall"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/turf/roguewall.dmi'
 	max_integrity = 0
 	opacity = 0
 	icon_state = "decostone-l"
@@ -399,13 +371,13 @@
 
 /turf/closed/dungeon_void
 	name = "thick dungeon shroud"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "shroud1"
 
 /turf/closed/wall/shroud //vines
 	name = "thick treetop"
 	desc = "All the birds flew away before I could see one!"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "shroud1"
 	var/smooth_icon = 'icons/turf/smoothrocks.dmi'
 	smooth = SMOOTH_MORE|SMOOTH_BORDER
@@ -458,7 +430,7 @@
 
 /turf/closed/wall/mineral/pipe
 	name = "metal wall"
-	icon = 'icons/turf/walls/pipewall.dmi'
+	icon = 'icons/turf/pipewall.dmi'
 	icon_state = "iron_box"
 	smooth = SMOOTH_MORE
 	blade_dulling = DULLING_BASH
@@ -476,8 +448,8 @@
 /turf/closed/wall/mineral/underbrick
 	name = "erebus stone wall"
 	desc = "The toils of hard-working shades."
-	icon = 'icons/turf/walls/underworld_brick.dmi'
-	icon_state = "brick"
+	icon = 'icons/turf/underbrick.dmi'
+	icon_state = "box"
 	smooth = SMOOTH_MORE
 	wallclimb = FALSE
 	blade_dulling = DULLING_BASH
@@ -485,7 +457,6 @@
 	sheet_type = null
 	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
 	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
-	canSmoothWith = list(/turf/closed/wall/mineral/underbrick)
 	above_floor = /turf/open/floor/church
 	baseturfs = list(/turf/open/floor/church)
 	neighborlay = "dirtedge"

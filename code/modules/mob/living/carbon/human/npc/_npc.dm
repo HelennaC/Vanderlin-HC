@@ -141,8 +141,10 @@
 		else
 			sneak_bonus = (target.mind?.get_skill_level(/datum/skill/misc/sneaking) * 5)
 		probby -= sneak_bonus
-
-	probby += 100 * target.get_encumbrance()
+	if(!target.check_armor_skill())
+		probby += 85 //armor is loud as fuck
+		if (sneak_bonus)
+			probby += sneak_bonus // you don't get sneak bonus in heavy armor at all, on top of that
 	if (target.stat_roll(STATKEY_LCK,5,10,TRUE))
 		probby += (10 - target.STALUC) * 5 // drop 5% chance for every bit of fortune we're missing
 	if (target.stat_roll(STATKEY_LCK,5,10))

@@ -11,8 +11,6 @@
 	nomouseover = TRUE
 	appearance_flags = NO_CLIENT_COLOR
 	nomouseover = TRUE
-	minimum_clean_strength = CLEAN_STRENGTH_BLOOD
-
 	var/blood_timer
 	var/wash_precent = 0
 	var/glows = FALSE
@@ -326,8 +324,7 @@
 	name = "footprints"
 	desc = ""
 	icon = 'icons/effects/footprints.dmi'
-	// No icon on compile because appearance is made by overlays
-	icon_state = MAP_SWITCH("", "blood1")
+	icon_state = "blood1"
 	random_icon_states = null
 	blood_state = BLOOD_STATE_HUMAN //the icon state to load images from
 	var/entered_dirs = 0
@@ -338,6 +335,7 @@
 
 /obj/effect/decal/cleanable/blood/footprints/Initialize(mapload)
 	. = ..()
+	icon_state = "" //All of the footprint visuals come from overlays
 	if(mapload)
 		entered_dirs |= dir //Keep the same appearance as in the map editor
 		update_icon()

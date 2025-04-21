@@ -101,9 +101,8 @@
 			var/datum/job/job = SSjob.GetJob(target.job)
 			if(length(user.mind?.apprentices) >= user.mind?.max_apprentices)
 				return
-			if((target.age == AGE_CHILD || job?.type == /datum/job/vagrant) && target.mind && !target.mind.apprentice)
+			if((target.age == AGE_ADULT || job?.type == /datum/job/vagrant) && target.mind && !target.mind.apprentice)
 				to_chat(user, span_notice("You offer apprenticeship to [target]."))
-				user.mind?.make_apprentice(target)
 				return
 
 	if(user.cmode)
@@ -365,7 +364,7 @@
 				if(ishuman(src))
 					var/mob/living/carbon/human/H = src
 					jadded += H.get_complex_pain()/50
-					if(H.get_encumbrance() >= 0.7)
+					if(!H.check_armor_skill())
 						jadded += 50
 						jrange = 1
 				if(adjust_stamina(min(jadded,100)))
@@ -448,7 +447,7 @@
 								put_in_active_hand(picked)
 								to_chat(src, span_green("I stole [picked]!"))
 								exp_to_gain *= src.mind.get_learning_boon(thiefskill)
-								GLOB.vanderlin_round_stats[STATS_ITEMS_PICKPOCKETED]++
+								GLOB.vanderlin_round_stats["items_pickpocketed"]++
 								if(has_flaw(/datum/charflaw/addiction/kleptomaniac))
 									sate_addiction()
 							else

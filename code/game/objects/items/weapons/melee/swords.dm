@@ -926,7 +926,6 @@
 	desc = ""
 	force = 2
 	force_wielded = 5
-	throwforce = 2
 	max_integrity = 240
 	sellprice = 1
 	smeltresult = /obj/item/ingot/tin //the truth comes out
