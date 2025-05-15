@@ -160,3 +160,4 @@
 #define span_artery(str) ("<span class='artery'>" + str + "</span>")
 #define span_hellspeak(str) ("<span class='hellspeak'>" + str + "</span>")
 #define span_love(str) ("<span class='love'>" + str + "</span>")
+#define span_lovebold(str) ("<span class='lovebold'>" + str + "</span>")

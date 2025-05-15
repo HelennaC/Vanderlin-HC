@@ -383,9 +383,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			dat += "<b>Voice Color: </b><a href='?_src_=prefs;preference=voice;task=input'>Change</a>"
 			dat += "<br><b>Accent:</b> <a href='?_src_=prefs;preference=selected_accent;task=input'>[selected_accent]</a>"
 			dat += "<br>"
-			//dat += "<br><b>Features:</b> <a href='?_src_=prefs;preference=customizers;task=menu'>Change</a>"
+			dat += "<br><b>Features:</b> <a href='?_src_=prefs;preference=customizers;task=menu'>Change</a>"
 			//dat += "<br>"
-			//dat += "<br><b>Markings:</b> <a href='?_src_=prefs;preference=markings;task=menu'>Change</a>"
+			dat += "<br><b>Markings:</b> <a href='?_src_=prefs;preference=markings;task=menu'>Change</a>"
 			//dat += "<br>" // These can be commented back in whenever someone figures out how to add markings to the menu. I'm a bad coder, so someone who's really smart and good at coding should take up my sword.
 			if(length(pref_species.descriptor_choices))
 				dat += "<br><b>Descriptors:</b> <a href='?_src_=prefs;preference=descriptors;task=menu'>Change</a>"
@@ -589,24 +589,25 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					dat += "</td>"
 					mutant_category = 0
 
-			if(CONFIG_GET(flag/join_with_mutant_humans))
+			//if(CONFIG_GET(flag/join_with_mutant_humans))
 
-				if(("wings" in pref_species.default_features) && GLOB.r_wings_list.len >1)
-					if(!mutant_category)
-						dat += APPEARANCE_CATEGORY_COLUMN
+			// DISABLED WINGS TO NOT APPEAR IN MENU
+			//	if(("wings" in pref_species.default_features) && GLOB.r_wings_list.len >1)
+			//		if(!mutant_category)
+				//		dat += APPEARANCE_CATEGORY_COLUMN
 
-					dat += "<h3>Wings</h3>"
+				//	dat += "<h3>Wings</h3>"
 
-					dat += "<a href='?_src_=prefs;preference=wings;task=input'>[features["wings"]]</a><BR>"
+				//	dat += "<a href='?_src_=prefs;preference=wings;task=input'>[features["wings"]]</a><BR>"
 
-					mutant_category++
-					if(mutant_category >= MAX_MUTANT_ROWS)
-						dat += "</td>"
-						mutant_category = 0
+				//	mutant_category++
+				//	if(mutant_category >= MAX_MUTANT_ROWS)
+				//		dat += "</td>"
+				//		mutant_category = 0
 
-			if(mutant_category)
+			//if(mutant_category)
 				dat += "</td>"
-				mutant_category = 0
+			//	mutant_category = 0
 			dat += "</tr></table>"
 			//-----------END OF BODY TABLE-----------//
 			dat += "</td>"
@@ -2269,6 +2270,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	character.socks = socks
 
 	/* V: */
+
 	character.headshot_link = headshot_link
 	character.flavortext = flavortext
 
@@ -2313,7 +2315,10 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	if(is_misc_banned(parent.ckey, BAN_MISC_PUNISHMENT_CURSE))
 		ADD_TRAIT(character, TRAIT_PUNISHMENT_CURSE, TRAIT_BAN_PUNISHMENT)
 
-	/* V */
+	if(parent?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
+		character.accent = selected_accent
+
+	/* :V */
 
 	if("tail_lizard" in pref_species.default_features)
 		character.dna.species.mutant_bodyparts |= "tail_lizard"
@@ -2322,9 +2327,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		character.update_body()
 		character.update_hair()
 		character.update_body_parts(redraw = TRUE)
-
-	if(parent?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
-		character.accent = selected_accent
 
 /datum/preferences/proc/get_default_name(name_id)
 	switch(name_id)
@@ -2410,4 +2412,3 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		return FALSE
 
 	return TRUE
-

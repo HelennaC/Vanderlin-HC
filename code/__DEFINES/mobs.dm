@@ -503,6 +503,12 @@
 #define SKIN_COLOR_MOONSHADE "C0C0C0" //Middle-eastern
 #define SKIN_COLOR_SANDSWEPT "fcccb3" //White - Tan
 
+//LUPIAN FUR TONES
+#define SKIN_COLOR_BLOODMOON "F5F5F0" 	//White
+#define SKIN_COLOR_FROSTFELL "616669" 	//Grey
+#define SKIN_COLOR_DAWNBREAK "1C1C1F" 	//Black
+#define SKIN_COLOR_VALKRAN "6B4F3B" 	//Brown
+
 //SPECIAL SKIN TONES
 #define SKIN_COLOR_ROT "878f79" //Sickly green
 

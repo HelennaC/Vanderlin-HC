@@ -66,6 +66,7 @@
 
 /mob/living
 	var/last_deadlife
+	var/defiant = FALSE
 
 /mob/living/proc/DeadLife()
 	set invisibility = 0

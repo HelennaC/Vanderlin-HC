@@ -138,3 +138,40 @@
 	desc = ""
 	damage_multiplier = 0.1 //STRONK
 	bang_protect = 1 //Fear me weaklings.
+
+/obj/item/organ/ears/anthro
+	name = "wild-kin ears"
+
+/obj/item/organ/ears/lupian
+	name = "lupian ears"
+
+/obj/item/organ/ears/vulpkanin
+	name = "vulpkian ears"
+	accessory_type = /datum/sprite_accessory/ears/fox
+
+/obj/item/organ/ears/tabaxi
+	name = "tabaxi ears"
+
+/obj/item/organ/ears/elf
+	name = "elf ears"
+	accessory_type = /datum/sprite_accessory/ears/elf
+
+/obj/item/organ/ears/elfw
+	name = "wood elf ears"
+	accessory_type = /datum/sprite_accessory/ears/elfw
+
+/obj/item/organ/ears/tiefling
+	name = "tiefling ears"
+	accessory_type = /datum/sprite_accessory/ears/elfw
+
+/obj/item/organ/ears/akula
+	name = "axian ears"
+	accessory_type = /datum/sprite_accessory/ears/shark
+
+/obj/item/organ/ears/halforc
+	name = "halforc ears"
+	accessory_type = /datum/sprite_accessory/ears/halforc
+
+/obj/item/organ/ears/goblin
+	name = "goblin ears"
+	accessory_type = /datum/sprite_accessory/ears/goblin

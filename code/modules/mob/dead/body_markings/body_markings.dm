@@ -93,6 +93,22 @@
 	affected_bodyparts = HAND_LEFT | HAND_RIGHT | LEG_LEFT | LEG_RIGHT
 	default_color = DEFAULT_SECONDARY
 
+/datum/body_marking/wolf
+	icon = 'icons/mob/body_markings/chest_markings.dmi'
+	name = "Wolf"
+	icon_state = "wolf"
+	affected_bodyparts = CHEST
+	default_color = DEFAULT_SECONDARY
+	covers_chest = TRUE
+
+/datum/body_marking/fox
+	icon = 'icons/mob/body_markings/chest_markings.dmi'
+	name = "Fox"
+	icon_state = "fox"
+	affected_bodyparts = CHEST
+	default_color = DEFAULT_SECONDARY
+	covers_chest = TRUE
+
 /datum/body_marking/bellyscale
 	icon = 'icons/mob/body_markings/chest_markings.dmi'
 	name = "Belly Scales"
@@ -184,7 +200,7 @@
 	name = "Back Spots"
 	icon_state = "backspots"
 	affected_bodyparts = CHEST
-	default_color = DEFAULT_SECONDARY
+	default_color = "555555"
 
 /datum/body_marking/front
 	icon = 'icons/mob/body_markings/chest_markings.dmi'
@@ -315,3 +331,19 @@
 	icon_state = "eyeliner"
 	default_color = "FF0000"
 	affected_bodyparts = HEAD
+
+/datum/body_marking/harlequin
+	icon = 'icons/mob/body_markings/plain_markings.dmi'
+	name = "Harlequin"
+	icon_state = "harlequin"
+	affected_bodyparts = HEAD | CHEST
+	default_color = DEFAULT_SECONDARY
+	covers_chest = TRUE
+
+/datum/body_marking/harlequinreversed
+	icon = 'icons/mob/body_markings/plain_markings.dmi'
+	name = "Harlequin (Reversed)"
+	icon_state = "harlequin_reversed"
+	affected_bodyparts = HEAD | CHEST
+	default_color = DEFAULT_SECONDARY
+	covers_chest = TRUE

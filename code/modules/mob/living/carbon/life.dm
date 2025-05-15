@@ -134,6 +134,14 @@
 		reagents.add_reagent(W.water_reagent, 2)
 		reagents.trans_to(src, reagents.total_volume, transfered_by = src, method = INGEST)
 
+/mob/living/carbon/handle_inwater()
+	..()
+	if(!(mobility_flags & MOBILITY_STAND))
+		if(HAS_TRAIT(src, TRAIT_NOBREATH) || HAS_TRAIT(src, TRAIT_WATERBREATHING))
+			return TRUE
+		adjustOxyLoss(5)
+		emote("drown")
+
 /mob/living/carbon/human/handle_inwater()
 	. = ..()
 	if(!lying)

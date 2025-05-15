@@ -50,6 +50,7 @@
 #define TRAIT_POISONBITE				"Poison Bite"
 #define TRAIT_FORAGER					"Foraging Knowledge" //Can tell which berries are good to eat when examining
 #define TRAIT_TINY 						"Tiny"
+#define TRAIT_WATERBREATHING 			"Water Breathing"
 
 // Divine patron trait bonuses:
 #define TRAIT_SOUL_EXAMINE				"Blessing of Necra"  //can check bodies to see if they have departed
@@ -112,6 +113,11 @@
 #define TRAIT_GRAGGAR_CURSE "Graggar's Curse"
 #define TRAIT_MATTHIOS_CURSE "Matthios' Curse"
 #define TRAIT_BAOTHA_CURSE "Baotha's Curse"
+
+// NSFW Traits
+#define TRAIT_DEATHBYSNUSNU "Bed Breaker"
+#define TRAIT_GOODLOVER "Fabled Lover"
+#define TRAIT_LIMPDICK "limp_dick"
 
 GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_WEBWALK = "I can move freely between webs.",
@@ -181,7 +187,10 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_SEE_LEYLINES = "I can see the lines that make up this world.",
 	TRAIT_TINY = "I am small, its hard to look people in the eyes.",
 	TRAIT_FOREIGNER = span_notice("I'm not from around here."),
-	TRAIT_BURDEN = "I carry the Burden of HEAD EATER's hunger..."
+	TRAIT_WATERBREATHING = span_info("I do not drown in bodies of water."),
+	TRAIT_BURDEN = "I carry the Burden of HEAD EATER's hunger...",
+	TRAIT_DEATHBYSNUSNU = "With strong intent, I can shatter pelvises in bed.",
+	TRAIT_GOODLOVER = span_love("It's a lucky thing to share my bed.")
 	))
 
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)

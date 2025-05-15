@@ -170,6 +170,26 @@
 	stressadd_per_extra_stack = 2
 	desc = "<span class='red'>I puked on myself!</span>"
 
+/datum/stressevent/cumbad
+	timer = 5 MINUTES
+	stressadd = 5
+	desc = span_boldred("I was violated.")
+
+/datum/stressevent/cumbad/can_apply(mob/living/user)
+	if(HAS_TRAIT(user, TRAIT_CRACKHEAD))
+		return FALSE
+	return TRUE
+
+/datum/stressevent/cumcorpse
+	timer = 1 MINUTES
+	stressadd = 10
+	desc = span_boldred("What have I done?")
+
+/datum/stressevent/cumcorpse/can_apply(mob/living/user)
+	if(HAS_TRAIT(user, TRAIT_CRACKHEAD))
+		return FALSE
+	return TRUE
+
 /datum/stressevent/leechcult
 	timer = 1 MINUTES
 	stressadd = 3

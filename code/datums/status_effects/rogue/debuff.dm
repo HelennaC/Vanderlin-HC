@@ -400,6 +400,53 @@
 	desc = "With some sleep in a coffin I feel like I could become better."
 	icon_state = "sleepy"
 
+/datum/status_effect/debuff/cumbrained
+	id = "cumbrained"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/cumbrained
+	effectedstats = list("intelligence" = -10, "strength" = -6, "speed" = -6)
+	duration = 60 SECONDS
+
+/atom/movable/screen/alert/status_effect/debuff/cumbrained
+	name = "Cum Brained"
+	desc = "It's hard to think..."
+	icon_state = "fentanyl"
+
+/// SURRENDERING DEBUFFS
+
+/datum/status_effect/debuff/breedable
+	id = "breedable"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/breedable
+	duration = 30 SECONDS
+
+/datum/status_effect/debuff/breedable/on_apply()
+	. = ..()
+	ADD_TRAIT(owner, TRAIT_CRITICAL_RESISTANCE, id)
+	ADD_TRAIT(owner, TRAIT_SPELLBLOCK, id)
+
+/datum/status_effect/debuff/breedable/on_remove()
+	. = ..()
+	REMOVE_TRAIT(owner, TRAIT_CRITICAL_RESISTANCE, id)
+	REMOVE_TRAIT(owner, TRAIT_SPELLBLOCK, id)
+
+/atom/movable/screen/alert/status_effect/debuff/breedable
+	name = "Breedable"
+
+/datum/status_effect/debuff/submissive
+	id = "submissive"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/submissive
+	duration = 60 SECONDS
+
+/datum/status_effect/debuff/submissive/on_apply()
+	. = ..()
+	owner.add_movespeed_modifier("SUBMISSIVE", multiplicative_slowdown = 4)
+
+/datum/status_effect/debuff/submissive/on_remove()
+	. = ..()
+	owner.remove_movespeed_modifier("SUBMISSIVE")
+
+/atom/movable/screen/alert/status_effect/debuff/submissive
+	name = "Submissive"
+
 /datum/status_effect/eorapacify
 	id = "eorapacify"
 	status_type = STATUS_EFFECT_REPLACE

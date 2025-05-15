@@ -192,3 +192,20 @@
 	timer = 5 MINUTES
 	stressadd = -3
 	desc = span_green("My apprentice is improving, all thanks to me!")
+
+// ERP Related
+
+/datum/stressevent/blueb
+	timer = 1 MINUTES
+	stressadd = -2
+	desc = span_green("This feels good.")
+
+/datum/stressevent/cumok
+	timer = 60 MINUTES
+	stressadd = -3
+	desc = span_green("I came.")
+
+/datum/stressevent/cumgood
+	timer = 60 MINUTES
+	stressadd = -5
+	desc = span_boldgreen("I came.")

@@ -1,18 +1,18 @@
 //used in various places
-#define ALL_RACES_LIST					list("human", "rakshari", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie", "kobold")
+#define ALL_RACES_LIST					list("human", "rakshari", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie", "kobold", "lupian", "axian", "lizardfolk", "tabaxi", "vulpkanin", "moth", "dracon", "anthromorph", "anthromorphsmall", "demihuman")
 
 /// All playable races from character selection menu.
-#define RACES_PLAYER_ALL				list("Humen", "Rakshari", "Half-Elf", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Half-Orc", "Aasimar", "Kobold")
+#define RACES_PLAYER_ALL				list("Humen", "Rakshari", "Half-Elf", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Half-Orc", "Aasimar", "Kobold", "Lupian", "Axian", "Lizardfolk", "Tabaxi", "Vulpkanin", "Moth", "Dracon", "Anthromorph", "Anthromorphsmall", "Demihuman")
 
 /// Races not considered discriminated against in Vanderlin. Used for nobility, guards, etc.
-#define RACES_PLAYER_NONDISCRIMINATED	list("Humen", "Half-Elf", "Elf", "Dwarf", "Aasimar")
+#define RACES_PLAYER_NONDISCRIMINATED	list("Humen", "Half-Elf", "Elf", "Dwarf", "Aasimar", "Lupian", "Dracon", "Lizardfolk")
 /// Races who are nonheretical to the church. Excluded races typically have an inhumen god associated, like Zizo. Used for church/faith roles.
-#define RACES_PLAYER_NONHERETICAL		list("Humen", "Rakshari", "Half-Elf", "Elf", "Dwarf", "Aasimar", "Kobold")
+#define RACES_PLAYER_NONHERETICAL		list("Humen", "Rakshari", "Half-Elf", "Elf", "Dwarf", "Aasimar", "Kobold", "Lizardfolk", "Moth")
 /// Races who are non-exotic to Vanderlin. These are races from foreign lands with no local pull or uncommon races. Used in miscellaneous cases, when they would not be that role.
-#define RACES_PLAYER_NONEXOTIC			list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Half-Orc", "Aasimar")
+#define RACES_PLAYER_NONEXOTIC			list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Half-Orc", "Aasimar", "Lizardfolk", "Axian", "Vulpkanin", "Lupian", "Tabaxi", "Moth", "Dracon", "Demihuman")
 
 /// Races who are affiliated with Grenzelhoft or Psydon specifically.
-#define RACES_PLAYER_GRENZ				list("Humen", "Dwarf", "Aasimar")
+#define RACES_PLAYER_GRENZ				list("Humen", "Dwarf", "Aasimar", "Lupian", "Tabaxi", "Lizardfolk", "Dracon")
 /// Elves and Half-Elves
 #define RACES_PLAYER_ELF				list("Half-Elf", "Elf")
 /// Elves, Half-Elves, Dark Elves

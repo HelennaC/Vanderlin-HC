@@ -70,7 +70,14 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 #define ishalfelf(A) (is_species(A, /datum/species/human/halfelf))
 #define istiefling(A) (is_species(A, /datum/species/tieberian))
 #define ishalforc(A) (is_species(A, /datum/species/halforc))
-
+#define islupian(A) (is_species(A, /datum/species/lupian))
+#define isaxian(A) (is_species(A, /datum/species/axian))
+#define istabaxi(A) (is_species(A, /datum/species/tabaxi))
+#define isvulpkanin(A) (is_species(A, /datum/species/vulpkanin))
+#define ismoth(A) (is_species(A, /datum/species/moth))
+#define iskobold(A) (is_species(A, /datum/species/kobold))
+#define isdracon(A) (is_species(A, /datum/species/dracon))
+#define islizardfolk(A) (is_species(A, /datum/species/lizardfolk))
 //more carbon mobs
 #define ismonkey(A) (istype(A, /mob/living/carbon/monkey))
 

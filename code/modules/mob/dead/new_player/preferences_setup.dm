@@ -130,7 +130,7 @@
 
 	if(previewJob)
 		mannequin.job = previewJob.title
-		mannequin.dress_up_as_job(previewJob, TRUE)
+		mannequin.dress_up_as_job(mannequin, TRUE, preference_source = parent)
 
 	parent.show_character_previews(new /mutable_appearance(mannequin))
 	unset_busy_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)

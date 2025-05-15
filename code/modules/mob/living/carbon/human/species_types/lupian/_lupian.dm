@@ -1,0 +1,36 @@
+/datum/species/lupian
+	name = "LupianB"
+	id = "lupian"
+	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
+
+/datum/species/lupian/check_roundstart_eligible()
+	return FALSE
+
+/datum/species/lupian/on_species_gain(mob/living/carbon/C, datum/species/old_species)
+	. = ..()
+	RegisterSignal(C, COMSIG_MOB_SAY, PROC_REF(handle_speech))
+	C.grant_language(/datum/language/common)
+
+/datum/species/lupian/on_species_loss(mob/living/carbon/C)
+	. = ..()
+	UnregisterSignal(C, COMSIG_MOB_SAY)
+	C.remove_language(/datum/language/common)
+
+/datum/species/lupian/qualifies_for_rank(rank, list/features)
+	return TRUE	//Pure lupians are always allowed in all roles.
+
+/datum/species/lupian/get_skin_list()
+	return sortList(list(
+	"skin1" = "ffe0d1",
+	"skin2" = "fcccb3"
+	))
+
+/datum/species/lupian/get_hairc_list()
+	return sortList(list(
+	"black - nightsky" = "0a0707",
+	"brown - treebark" = "362e25",
+	"blonde - moonlight" = "dfc999",
+	"red - autumn" = "a34332"
+	))
+/datum/species/lupian/get_native_language()
+	return "Imperial"
